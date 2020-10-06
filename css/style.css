@@ -1,0 +1,55 @@
+body{
+  margin: auto;
+}
+
+.content {
+  background-color: #3e3e3e;
+  color: #e3e3e3;
+  display: grid;
+  min-height: 100vh;
+  min-width: 100vw;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  place-content: center;
+}
+
+.ok {
+  color: green
+}
+
+.warn {
+  color: orangered;
+}
+
+.err {
+  color: red
+}
+
+#passwordInput {
+  background-color: #1e1e1e;
+  border: 0;
+  border-radius: 10px;
+  color: #e3e3e3;
+  font-size: 20px;
+  height: 40px;
+  padding: 7px;
+  width: 400px;
+}
+
+#submitButton {
+  background-color: cornflowerblue;
+  border: 0;
+  border-radius: 10px;
+  color: #1e1e1e;
+  height: 54px;
+  font-size: 20px;
+  margin-left: 10px;
+  padding: 7px;
+  width: 100px;
+}
+
+#message {
+  font-size: 1.2rem;
+  font-weight: 600;
+  min-height: 78px;
+  width: 550px;
+}
