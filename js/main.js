@@ -5,6 +5,12 @@ const passwordInput = document.querySelector("#passwordInput")
 const message = document.querySelector("#message")
 
 submitButton.addEventListener("click", checkPassword)
+submitButton.addEventListener("keydown", e => {
+  if (e.key === "Enter") checkPassword()
+})
+passwordInput.addEventListener("keydown", e => {
+  if (e.key === "Enter") checkPassword()
+})
 
 async function checkPassword(){
   const password = passwordInput.value
@@ -24,16 +30,12 @@ async function retrieveHibpResults(firstFive) {
     return await fetch(`${baseUrl}${firstFive}`, {mode: "cors"})
     .then(res => res.text())
     .then(text => text.split('\n'))
-    .then(results => {
-      const hashes = results.map(item => {
-        const hash = firstFive.concat("", item.split(":")[0])
-        return ({
-          hash: hash,
-          count: parseInt(item.split(":")[1], 10)
-        })
-      })
-      return hashes
-    })
+    .then(results => (
+      results.map(item => ({
+        hash: firstFive.concat("", item.split(":")[0]),
+        count: parseInt(item.split(":")[1], 10)
+      }))
+    ))
   } catch (err) {
     return err
   }
@@ -65,7 +67,7 @@ function renderResult(match, results) {
   } else if (match === -1){
     message.classList.remove("warn", "err")
     message.classList.add("ok")
-    message.textContent = "This password has not appeared in a data breach according to haveibeenpwned.com. "
+    message.textContent = `This password has not appeared in a data breach according to haveibeenpwned.com.`
   } else {
     message.classList.remove("ok", "err")
     message.classList.add("warn")
