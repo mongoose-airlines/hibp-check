@@ -47,7 +47,6 @@ function binarySearch(arr, element){
   let midPoint = Math.floor((start + end) / 2)
 
   while(arr[midPoint].hash !== element && start < end) {
-    console.log(arr[midPoint].hash)
     if (element < arr[midPoint].hash) {
         end = midPoint - 1
     } else {
@@ -59,7 +58,6 @@ function binarySearch(arr, element){
 }
 
 function renderResult(match, results) {
-  console.log(match)
   if(isNaN(match)){
     message.classList.remove("ok", "warn")
     message.classList.add("err")
