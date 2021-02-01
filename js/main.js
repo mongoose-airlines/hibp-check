@@ -16,10 +16,10 @@ async function checkPassword(){
   const password = passwordInput.value
   const hashedPassword = new Hashes.SHA1().hex(password).toUpperCase()
   const firstFive = hashedPassword.substring(0, 5).toUpperCase()
-  const hidpResults = await retrieveHibpResults(firstFive)
-  if(Array.isArray(hidpResults)){
-    const searchResult = binarySearch(hidpResults, hashedPassword)
-    renderResult(searchResult, hidpResults)
+  const hibpResults = await retrieveHibpResults(firstFive)
+  if(Array.isArray(hibpResults)){
+    const searchResult = binarySearch(hibpResults, hashedPassword)
+    renderResult(searchResult, hibpResults)
   } else {
     renderResult("Oh no, something went wrong!")
   }
